@@ -1,42 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function htmlInput() {
   // This function gets the user input.
 
@@ -92,7 +53,7 @@ function displayingResult(inputArray, inputSequence, isAdjacent) {
 }
 
 function isAdjacentCheckedOrNot(inputArray, inputSequence, isAdjacent) {
-  // This function have two possible return values. 
+  // This function have two possible return values.
   // If the isAdjacent checkbox is checked it returns the result of isAdjacentIsChecked function.
   // If the isAdjacent checkbox is not checked it returns the result of isAdjacentNotChecked function.
 
@@ -111,7 +72,9 @@ function isAdjacentNotChecked(inputArray, inputSequence) {
   inputArray = inputArray.slice(inputArray.indexOf(inputSequence[0]));
 
   sequenceArray = inputSequence.filter((par) =>
-    inputArray.includes(par) ? inputArray.splice(inputArray.indexOf(par), 1) : false
+    inputArray.includes(par)
+      ? inputArray.splice(inputArray.indexOf(par), 1)
+      : false
   );
 
   if (sequenceArray.length === 0) {
@@ -121,7 +84,10 @@ function isAdjacentNotChecked(inputArray, inputSequence) {
   }
 
   for (let i = 0; i < sequenceArray.length; i++) {
-    if (sequenceArray.indexOf(inputSequence[i]) !== inputSequence.indexOf(inputSequence[i])) {
+    if (
+      sequenceArray.indexOf(inputSequence[i]) !==
+      inputSequence.indexOf(inputSequence[i])
+    ) {
       return "False";
     }
   }
