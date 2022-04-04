@@ -107,5 +107,5 @@ let submit1Element = document.getElementById("submit1");
 submit1Element.addEventListener("click", (e) => {
   e.preventDefault();
 
-  htmlInput();
+  htmlInput(); // hello
 });
