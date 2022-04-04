@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="sequences.css" />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check your sequence</title>
+  </head>
+
+  <body>
+    <h1>Check if array of numbers have a certain kind of sequence</h1>
+
+    <p id="text">
+      On the first field below you must enter numbers to form an array of
+      numbers.On the second you must enter numbers, which will be your
+      sequence and that sequence will be checked in the array.<br>
+      The Adjacent checkbox adds additional condition to the check. When checked
+      it checks if the sequence is present in the exact order in the array.
+    </p>
+
+    <form
+      align="center"
+      id="myForm"
+      onkeydown="return event.key != 'Enter';"
+      onsubmit="event.preventDefault()"
+    >
+      <input
+        type="text"
+        id="array"
+        placeholder="Enter the numbers for the array!"
+        required
+      /><br />
+
+      <input
+        type="text"
+        id="sequence"
+        placeholder="Enter the sequence you want to test!"
+        required
+      /><br />
+
+      <button type="submit" id="submit1">Submit</button><br />
+
+      <input type="checkbox" id="adjacent" style="margin-top: 1.5rem" />
+      <label
+        for="adjacent"
+        style="
+          color: rgb(0, 0, 0);
+          font-size: 1.4rem;
+          background-color: rgb(255, 0, 0);
+          border-radius: 5px;
+          font-weight: bold;
+        "
+        >Adjacent</label
+      >
+      <br />
+    </form>
+
+    <center>
+      <p
+        id="num1"
+        style="
+          font-size: 1.5rem;
+          color: rgb(0, 0, 0);
+          font-weight: bold;
+          background-color: green;
+          width: 15%;
+          border-radius: 10px;
+          box-shadow: 3px 3px 3px green;
+          margin-top: 3rem;
+        "
+      ></p>
+    </center>
+
+    <script src="sequences.js"></script>
+  </body>
+</html>
