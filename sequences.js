@@ -1,23 +1,62 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function htmlInput() {
-  let arr = document.getElementById("array").value;
+  let inputArray = document.getElementById("array").value;
 
-  let sequence = document.getElementById("sequence").value;
+  let inputSequence = document.getElementById("sequence").value;
 
-  convertingToNumbers(arr, sequence);
+  convertingToNumbers(inputArray, inputSequence);
 }
 
-function convertingToNumbers(arr, sequence) {
-  arr = arr.split("").map(Number);
+function convertingToNumbers(inputArray, inputSequence) {
+  inputArray = inputArray.split("").map(Number);
 
-  sequence = sequence.split("").map(Number);
+  inputSequence = inputSequence.split("").map(Number);
 
-  errorChecking(arr, sequence);
+  errorChecking(inputArray, inputSequence);
 }
 
-function errorChecking(arr, sequence) {
-  let lengthOfArr = arr.length;
+function errorChecking(inputArray, inputSequence) {
+  let lengthOfArr = inputArray.length;
 
-  let lengthOfSequence = sequence.length;
+  let lengthOfSequence = inputSequence.length;
 
   if (lengthOfArr < 3) {
     return alert("Please enter more than three integers for the array!");
@@ -27,46 +66,46 @@ function errorChecking(arr, sequence) {
     return alert("Please enter more than one integer for the sequence!");
   }
 
-  checkIsAdjacent(arr, sequence);
+  checkIsAdjacent(inputArray, inputSequence);
 }
 
-function checkIsAdjacent(arr, sequence) {
+function checkIsAdjacent(inputArray, inputSequence) {
   let isAdjacent = document.getElementById("adjacent").checked;
 
-  displayingResult(arr, sequence, isAdjacent);
+  displayingResult(inputArray, inputSequence, isAdjacent);
 }
 
-function displayingResult(arr, sequence, isAdjacent) {
-  let result = isAdjacentCheckedOrNot(arr, sequence, isAdjacent);
+function displayingResult(inputArray, inputSequence, isAdjacent) {
+  let result = isAdjacentCheckedOrNot(inputArray, inputSequence, isAdjacent);
 
   document.getElementById("num1").innerHTML = result;
 }
 
-function isAdjacentCheckedOrNot(arr, sequence, isAdjacent) {
+function isAdjacentCheckedOrNot(inputArray, inputSequence, isAdjacent) {
   if (isAdjacent === false) {
-    return isAdjacentNotChecked(arr, sequence);
+    return isAdjacentNotChecked(inputArray, inputSequence);
   } else {
-    return isAdjacentIsChecked(arr, sequence);
+    return isAdjacentIsChecked(inputArray, inputSequence);
   }
 }
 
-function isAdjacentNotChecked(arr, sequence) {
-  let arr2 = [];
+function isAdjacentNotChecked(inputArray, inputSequence) {
+  let sequenceArray = [];
 
-  arr = arr.slice(arr.indexOf(sequence[0]));
+  inputArray = inputArray.slice(inputArray.indexOf(inputSequence[0]));
 
-  arr2 = sequence.filter((par) =>
-    arr.includes(par) ? arr.splice(arr.indexOf(par), 1) : false
+  sequenceArray = inputSequence.filter((par) =>
+    inputArray.includes(par) ? inputArray.splice(inputArray.indexOf(par), 1) : false
   );
 
-  if (arr2.length === 0) {
+  if (sequenceArray.length === 0) {
     return "False";
-  } else if (arr2.length !== sequence.length) {
+  } else if (sequenceArray.length !== inputSequence.length) {
     return "False";
   }
 
-  for (let i = 0; i < arr2.length; i++) {
-    if (arr2.indexOf(sequence[i]) !== sequence.indexOf(sequence[i])) {
+  for (let i = 0; i < sequenceArray.length; i++) {
+    if (sequenceArray.indexOf(inputSequence[i]) !== inputSequence.indexOf(inputSequence[i])) {
       return "False";
     }
   }
@@ -74,18 +113,18 @@ function isAdjacentNotChecked(arr, sequence) {
   return "True";
 }
 
-function isAdjacentIsChecked(arr, sequence) {
-  let lengthOfArr = arr.length;
+function isAdjacentIsChecked(inputArray, inputSequence) {
+  let lengthOfArr = inputArray.length;
 
-  let lengthOfSequence = sequence.length;
+  let lengthOfSequence = inputSequence.length;
 
-  let arr2 = [];
+  let sequenceArray = [];
 
   let j = 0;
 
   for (let i = 0; i < lengthOfArr; i++) {
-    if (arr[i] === sequence[j]) {
-      arr2.push(arr[i]);
+    if (inputArray[i] === inputSequence[j]) {
+      sequenceArray.push(inputArray[i]);
 
       j++;
 
@@ -97,15 +136,15 @@ function isAdjacentIsChecked(arr, sequence) {
     }
   }
 
-  if (arr2.length !== lengthOfSequence) {
+  if (sequenceArray.length !== lengthOfSequence) {
     return "False";
   }
 }
 
-let submit1Element = document.getElementById("submit1");
+let submitElement = document.getElementById("submit1");
 
-submit1Element.addEventListener("click", (e) => {
+submitElement.addEventListener("click", (e) => {
   e.preventDefault();
 
-  htmlInput(); // hello
+  htmlInput();
 });
