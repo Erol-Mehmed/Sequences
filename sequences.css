@@ -139,3 +139,14 @@ button:hover {
 input {
   font-size: 1rem;
 }
+
+#result {
+  font-size: 1.5rem;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  background-color: aquamarine;
+  width: 15%;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px aquamarine;
+  margin-top: 3rem;
+}

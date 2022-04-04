@@ -38,6 +38,8 @@
 
 
 function htmlInput() {
+  // This function gets the user input.
+
   let inputArray = document.getElementById("array").value;
 
   let inputSequence = document.getElementById("sequence").value;
@@ -46,6 +48,8 @@ function htmlInput() {
 }
 
 function convertingToNumbers(inputArray, inputSequence) {
+  // This function takes the input strings and convert them to arrays of numbers.
+
   inputArray = inputArray.split("").map(Number);
 
   inputSequence = inputSequence.split("").map(Number);
@@ -54,6 +58,8 @@ function convertingToNumbers(inputArray, inputSequence) {
 }
 
 function errorChecking(inputArray, inputSequence) {
+  // This function checks if the length of the arrays meet the requirements.
+
   let lengthOfArr = inputArray.length;
 
   let lengthOfSequence = inputSequence.length;
@@ -70,18 +76,26 @@ function errorChecking(inputArray, inputSequence) {
 }
 
 function checkIsAdjacent(inputArray, inputSequence) {
+  // This function checks if the isAdjacent checkbox is checked.
+
   let isAdjacent = document.getElementById("adjacent").checked;
 
   displayingResult(inputArray, inputSequence, isAdjacent);
 }
 
 function displayingResult(inputArray, inputSequence, isAdjacent) {
+  // This function displays the result of all the operations.
+
   let result = isAdjacentCheckedOrNot(inputArray, inputSequence, isAdjacent);
 
-  document.getElementById("num1").innerHTML = result;
+  document.getElementById("result").innerHTML = result;
 }
 
 function isAdjacentCheckedOrNot(inputArray, inputSequence, isAdjacent) {
+  // This function have two possible return values. 
+  // If the isAdjacent checkbox is checked it returns the result of isAdjacentIsChecked function.
+  // If the isAdjacent checkbox is not checked it returns the result of isAdjacentNotChecked function.
+
   if (isAdjacent === false) {
     return isAdjacentNotChecked(inputArray, inputSequence);
   } else {
@@ -90,6 +104,8 @@ function isAdjacentCheckedOrNot(inputArray, inputSequence, isAdjacent) {
 }
 
 function isAdjacentNotChecked(inputArray, inputSequence) {
+  // This function makes the checking in case of isAdjacent checkbox is not checked.
+
   let sequenceArray = [];
 
   inputArray = inputArray.slice(inputArray.indexOf(inputSequence[0]));
@@ -114,6 +130,8 @@ function isAdjacentNotChecked(inputArray, inputSequence) {
 }
 
 function isAdjacentIsChecked(inputArray, inputSequence) {
+  // This function makes the checking if isAdjacent checkbox is checked.
+
   let lengthOfArr = inputArray.length;
 
   let lengthOfSequence = inputSequence.length;
@@ -140,6 +158,9 @@ function isAdjacentIsChecked(inputArray, inputSequence) {
     return "False";
   }
 }
+
+// The codes below get the submit button element and adds an event listener to it.
+// If the button is clicked the function htmlInput() is called and all operations in this file are executed.
 
 let submitElement = document.getElementById("submit1");
 
