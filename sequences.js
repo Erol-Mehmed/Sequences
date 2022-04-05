@@ -125,7 +125,7 @@ function isAdjacentIsChecked(inputArray, inputSequence) {
   }
 }
 
-// The codes below get the submit button element and adds an event listener to it.
+// The codes below get the submit button element and attach an event listener to it.
 // If the button is clicked the function htmlInput() is called and all operations in this file are executed.
 
 let submitElement = document.getElementById("submit1");
