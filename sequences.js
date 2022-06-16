@@ -69,14 +69,15 @@ function isAdjacentNotChecked(inputArray, inputSequence) {
 
   let sequenceArray = [];
 
-  inputArray = inputArray.slice(inputArray.indexOf(inputSequence[0]));
+  inputArray = inputArray.slice(inputArray.indexOf(inputSequence[0])); // Here we reduce the input array to the elements after the first element of the input sequence.
+  // We do this because we want to check the numbers after the first sequence number. The sequence cannot go backwards.
 
   sequenceArray = inputSequence.filter((par) =>
     inputArray.includes(par)
       ? inputArray.splice(inputArray.indexOf(par), 1)
       : false
   );
-
+ 
   if (sequenceArray.length === 0) {
     return "False";
   } else if (sequenceArray.length !== inputSequence.length) {
